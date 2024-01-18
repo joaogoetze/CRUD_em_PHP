@@ -1,0 +1,10 @@
+CREATE DATABASE IF NOT EXISTS banco DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+
+USE banco;
+
+CREATE TABLE IF NOT EXISTS usuario (
+  id INT AUTO_INCREMENT,
+  nome VARCHAR(255),
+  idade INT,
+  PRIMARY KEY (id)
+);

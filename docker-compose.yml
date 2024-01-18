@@ -1,0 +1,43 @@
+version: '3.4'
+
+# Faz com que os servicos consigam se comunicar entre si
+networks:
+  myNetwork:
+
+services:
+  db:
+    image: mysql
+    ports:
+      - 3306:3306
+    networks:
+      - myNetwork
+    container_name: mysql-container
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: banco
+    volumes:
+    - ./api/db/script.sql:/docker-entrypoint-initdb.d/script.sql
+    restart: always
+  web:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: php-container
+    restart: always
+    networks:
+      - myNetwork
+    volumes:
+      - ./api/www:/var/www
+    ports:
+      - 8888:80
+    depends_on:
+      - db
+  adminer:
+    image: adminer
+    container_name: adminer
+    ports:
+      - "8080:8080"
+    restart: always
+    depends_on:
+      - db
