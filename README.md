@@ -1,7 +1,7 @@
 # crud_em_php
 CRUD básico em PHP
 
-Esse projeto foi desenvolvido para testar minhas habilidades EM PHP, Mysql e Docker
+Esse projeto foi desenvolvido para testar minhas habilidades em PHP, Mysql e Docker
 
 Objetivos:
 - Treinar os conceitos básicos de PHP e Orientação a Objetos
