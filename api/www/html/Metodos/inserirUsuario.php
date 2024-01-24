@@ -1,6 +1,6 @@
 <?php
 
-require_once("config.php");
+require_once("../Config/config.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Recupera os valores do formulário
@@ -14,6 +14,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 ?>
 
-<a href="index.php">
+<a href="../index.php">
     <button>Retornar à tela inicial</button>
 </a>

@@ -6,7 +6,15 @@ class Sql extends PDO
     // 2 - Faz com que toda vez que eu istancie a classe Sql, já me conecte automaticamente ao banco de dados
     public function __construct()
     {
-        include('conexaoBanco.php');
+        if(file_exists('Banco/conexaoBanco.php'))
+        {
+            include('Banco/conexaoBanco.php');
+        }
+        else
+        {
+            include('../Banco/conexaoBanco.php');
+        }
+        
     }
 
     //rawQuery = o comando sql puro

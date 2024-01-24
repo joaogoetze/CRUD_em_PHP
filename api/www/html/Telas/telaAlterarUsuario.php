@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET")
     $nome = $_GET["nome"];
     $idade = $_GET["idade"];
 
-    echo "<form method=\"get\" action=\"alterarUsuario.php\">";
+    echo "<form method=\"get\" action=\"../Metodos/alterarUsuario.php\">";
     echo    "<label>Id</label>";
     echo    "<input id=\"id\" name=\"id\" required=\"required\" type=\"text\" value=$id readonly/>";
     echo    "<label>Nome</label>";
