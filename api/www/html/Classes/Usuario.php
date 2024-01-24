@@ -5,8 +5,11 @@ include('Sql.php');
 Class Usuario
 {
     //Atributos
+    /** @var int */
     private $idUsuario;
+    /** @var string */
     private $nomeUsuario;
+    /** @var int */
     private $idadeUsuario;
 
     //Getters e Setters
@@ -43,16 +46,16 @@ Class Usuario
     //Metodos mágicos
     public function __construct($nome = "", $idade = "")
     {
-        $this->setNomeUsuario($nome);
-        $this->setIdadeUsuario($idade);
+        $this->nomeUsuario = $nome;
+        $this->idadeUsuario = $idade;
     }
 
     public function __toString()
     {
         return json_encode(array(
-            "id"=>$this->getIdUsuario(),
-            "nome"=>$this->getNomeUsuario(),
-            "idade"=>$this->getIdadeUsuario()
+            "id"=>$this->idUsuario,
+            "nome"=>$this->nomeUsuario,
+            "idade"=>$this->idadeUsuario
         ));
     }
 
@@ -85,8 +88,8 @@ Class Usuario
         $sql = new Sql();
 
         $retorno = $sql->querySql("INSERT INTO usuario (nome, idade) VALUES (:NOME, :IDADE)", array(
-            ':NOME'=>$this->getNomeUsuario(),
-            ':IDADE'=>$this->getIdadeUsuario()
+            ':NOME'=>$this->nomeUsuario,
+            ':IDADE'=>$this->idadeUsuario
         ));
 
         if($retorno)
@@ -105,7 +108,7 @@ Class Usuario
         $sql = new Sql();
 
         $retorno = $sql->querySql("DELETE FROM usuario WHERE id = :ID", array(
-            ':ID'=>$this->getIdUsuario()
+            ':ID'=>$this->idUsuario
         ));
 
         if($retorno)
@@ -122,13 +125,13 @@ Class Usuario
     {
         $sql = new Sql();
 
-        $this->setNomeUsuario($nome);
-        $this->setIdadeUsuario($idade);
+        $this->nomeUsuario = $nome;
+        $this->idadeUsuario = $idade;
 
         $retorno = $sql->querySql("UPDATE usuario SET nome = :NOME, idade = :IDADE WHERE id = :ID", array(
-            ':NOME'=>$this->getNomeUsuario(),
-            ':IDADE'=>$this->getIdadeUsuario(),
-            ':ID'=>$this->getIdUsuario()
+            ':NOME'=>$this->nomeUsuario,
+            ':IDADE'=>$this->idadeUsuario,
+            ':ID'=>$this->idUsuario
         ));
 
         if($retorno)
@@ -143,9 +146,9 @@ Class Usuario
 
     public function setData($data)
     {
-        $this->setIdUsuario($data['id']);
-        $this->setNomeUsuario($data['nome']);
-        $this->setIdadeUsuario($data['idade']);
+        $this->idUsuario = $data['id'];
+        $this->nomeUsuario = $data['nome'];
+        $this->idadeUsuario = $data['idade'];
     }
 }
 
