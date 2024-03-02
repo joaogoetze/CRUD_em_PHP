@@ -2,7 +2,7 @@
 
 echo "Página rodando em um container docker <br> ";
 
-require_once('Config/config.php');
+require_once('Controller/controller.php');
 
 $lista = Usuario::getList();
 
@@ -17,7 +17,7 @@ $lista = Usuario::getList();
 </head>
 <body>
     <br>
-    <form method="post" action="Metodos/inserirUsuario.php">
+    <form method="post" action="functions/inserirUsuario.php">
         <label>Nome</label>
         <input id="nomeUsuario" name="nomeUsuario" required="required" type="text"/>
         <label>Idade</label>
@@ -36,8 +36,8 @@ $lista = Usuario::getList();
 					echo    "<td>".$valor['id']." </td>";
 					echo    "<td>".$valor['nome']." </td>";
 					echo    "<td>".$valor['idade']."</td>";
-					echo    "<th> <a href=\"Metodos/deleteUsuario.php?id={$valor['id']}\" > Deletar </a></th>";
-					echo    "<th> <a href=\"Telas/telaAlterarUsuario.php?id={$valor['id']}&nome={$valor['nome']}&idade={$valor['idade']}\"> Editar </a></th>";
+					echo    "<th> <a href=\"functions/deleteUsuario.php?id={$valor['id']}\" > Deletar </a></th>";
+					echo    "<th> <a href=\"View/telaAlterarUsuario.php?id={$valor['id']}&nome={$valor['nome']}&idade={$valor['idade']}\"> Editar </a></th>";
 					echo "</tr>";
  				}
             ?> 

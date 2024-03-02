@@ -8,13 +8,13 @@ spl_autoload_register(function($class_name)
     {
         require_once($filename);
     }
-    else if(file_exists('Classes/'.$class_name.'.php'))
+    else if(file_exists('Model/'.$class_name.'.php'))
     {
-        require_once('Classes/'.$class_name.'.php');
+        require_once('Model/'.$class_name.'.php');
     }
     else
     {
-        require_once('../Classes/'.$class_name.'.php');
+        require_once('../Model/'.$class_name.'.php');
     }
 });
   

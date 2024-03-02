@@ -1,6 +1,6 @@
 <?php
 
-require_once("../Config/config.php");
+require_once("../Controller/controller.php");
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     

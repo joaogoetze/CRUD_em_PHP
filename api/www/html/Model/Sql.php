@@ -13,8 +13,7 @@ class Sql extends PDO
         else
         {
             include('../Banco/conexaoBanco.php');
-        }
-        
+        }  
     }
 
     //rawQuery = o comando sql puro
